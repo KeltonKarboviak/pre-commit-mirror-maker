@@ -7,14 +7,27 @@ name = "pre-commit-mirror-maker-redux"
 version = "0.1.0"
 description = "Scripts for creating mirror repositories that do not have .pre-commit-hooks.yaml"
 authors = ["Kelton Karboviak <kelton.karboviak@gmail.com>"]
+readme = "README.md"
 license = "MIT"
+repository = "https://github.com/KeltonKarboviak/pre-commit-mirror-maker"
+classifiers = [
+    'License :: OSI Approved :: MIT License',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: Implementation :: CPython',
+    'Programming Language :: Python :: Implementation :: PyPy',
+]
 
 [tool.poetry.dependencies]
 python = "^3.6"
 PyYAML = "^3.13"
+packaging = "*"
 
 [tool.poetry.dev-dependencies]
 coverage = "^4.5"
 pre-commit = "^1.12"
 pytest = "^4.0"
 pytest-env = "^0.6"
+
+[tool.poetry.scripts]
+pre-commit-mirror-redux = 'pre_commit_mirror_maker_redux.main:main'
