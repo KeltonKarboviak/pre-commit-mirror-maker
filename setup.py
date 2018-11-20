@@ -3,17 +3,15 @@ from setuptools import setup
 
 
 setup(
-    name='pre-commit-mirror-maker',
+    name='pre-commit-mirror-maker-redux',
     description=(
         'Scripts for creating mirror repositories that do not have '
         '.pre-commit-hooks.yaml'
     ),
-    url='https://github.com/pre-commit/pre-commit-mirror-maker',
+    url='https://github.com/KeltonKarboviak/pre-commit-mirror-maker',
     version='1.1.0',
-
-    author='Anthony Sottile',
-    author_email='asottile@umich.edu',
-
+    author='Kelton Karboviak',
+    author_email='kelton.karboviak@gmail.com',
     platforms='all',
     classifiers=[
         'License :: OSI Approved :: MIT License',
@@ -26,8 +24,8 @@ setup(
     packages=find_packages(exclude=('tests*', 'testing*')),
     entry_points={
         'console_scripts': [
-            'pre-commit-mirror = pre_commit_mirror_maker.main:main',
-        ],
+            'pre-commit-mirror-redux = pre_commit_mirror_maker_redux.main:main'
+        ]
     },
     package_data={
         'pre_commit_mirror_maker': [
@@ -38,6 +36,6 @@ setup(
             'python/*',
             'ruby/*',
             'rust/*',
-        ],
+        ]
     },
 )
