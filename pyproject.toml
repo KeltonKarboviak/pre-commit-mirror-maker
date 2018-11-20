@@ -1,0 +1,20 @@
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "pre-commit-mirror-maker-redux"
+version = "0.1.0"
+description = "Scripts for creating mirror repositories that do not have .pre-commit-hooks.yaml"
+authors = ["Kelton Karboviak <kelton.karboviak@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+PyYAML = "^3.13"
+
+[tool.poetry.dev-dependencies]
+coverage = "^4.5"
+pre-commit = "^1.12"
+pytest = "^4.0"
+pytest-env = "^0.6"
