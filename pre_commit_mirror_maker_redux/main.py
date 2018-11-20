@@ -31,27 +31,25 @@ def split_by_commas(maybe_s: str) -> Tuple[str, ...]:
 def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        'repo_path',
-        help='Local path where the git repo is checked out.',
+        'repo_path', help='Local path where the git repo is checked out.'
     )
     parser.add_argument(
-        '--language', required=True, choices=LIST_VERSIONS,
+        '--language',
+        required=True,
+        choices=LIST_VERSIONS,
         help='Which language to use.',
     )
     parser.add_argument(
-        '--package-name', required=True,
+        '--package-name',
+        required=True,
         help='Package name as it appears on the remote package manager.',
     )
 
     mutex = parser.add_mutually_exclusive_group(required=True)
-    mutex.add_argument(
-        '--files-regex', help='Files regex to use in hooks.yaml',
-    )
+    mutex.add_argument('--files-regex', help='Files regex to use in hooks.yaml')
     mutex.add_argument('--types', help='`identify` type to match')
 
-    parser.add_argument(
-        '--entry', help='Entry point, defaults to the package name.',
-    )
+    parser.add_argument('--entry', help='Entry point, defaults to the package name.')
     parser.add_argument(
         '--args',
         help=(

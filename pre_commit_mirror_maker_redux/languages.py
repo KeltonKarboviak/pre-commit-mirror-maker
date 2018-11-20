@@ -31,13 +31,13 @@ def rust_get_package_versions(package_name: str) -> List[str]:
 
 
 def node_get_additional_dependencies(
-        package_name: str, package_version: str,
+    package_name: str, package_version: str
 ) -> List[str]:
     return [f'{package_name}@{package_version}']
 
 
 def rust_get_additional_dependencies(
-        package_name: str, package_version: str,
+    package_name: str, package_version: str
 ) -> List[str]:
     return [f'cli:{package_name}:{package_version}']
 

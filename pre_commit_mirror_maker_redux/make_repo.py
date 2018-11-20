@@ -3,7 +3,6 @@ import os.path
 import subprocess
 
 import pkg_resources
-
 from pre_commit_mirror_maker.languages import ADDITIONAL_DEPENDENCIES
 from pre_commit_mirror_maker.languages import LIST_VERSIONS
 
@@ -43,12 +42,7 @@ def format_files(src: str, dest: str, **fmt_vars: str) -> None:
             file_obj.write(output_contents)
 
 
-def _commit_version(
-        repo: str, *,
-        language: str,
-        version: str,
-        **fmt_vars: str,
-) -> None:
+def _commit_version(repo: str, *, language: str, version: str, **fmt_vars: str) -> None:
     # 'all' writes the .version and .pre-commit-hooks.yaml files
     for lang in ('all', language):
         src = pkg_resources.resource_filename('pre_commit_mirror_maker', lang)
@@ -75,16 +69,13 @@ def make_repo(repo: str, *, language: str, name: str, **fmt_vars: str) -> None:
     if os.path.exists(version_file):
         previous_version = open(version_file).read().strip()
         previous_version_index = package_versions.index(previous_version)
-        versions_to_apply = package_versions[previous_version_index + 1:]
+        versions_to_apply = package_versions[previous_version_index + 1 :]
     else:
         versions_to_apply = package_versions
 
     for version in versions_to_apply:
         if language in ADDITIONAL_DEPENDENCIES:
-            additional_dependencies = ADDITIONAL_DEPENDENCIES[language](
-                name,
-                version,
-            )
+            additional_dependencies = ADDITIONAL_DEPENDENCIES[language](name, version)
         else:
             additional_dependencies = []
 
