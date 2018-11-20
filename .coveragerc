@@ -23,5 +23,3 @@ exclude_lines =
 
 [html]
 directory = coverage-html
-
-# vim:ft=dosini
